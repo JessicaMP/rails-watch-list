@@ -1,2 +1,18 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+<div class="d-flex flex-column gap-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1>Lists</h1>
+    <a class="btn btn-primary d-block" href="<%= new_list_path %>" type="button">Add List</a>
+  </div>
+  <ol class="list-group list-group-numbered">
+    <% @lists.each do |list| %>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">
+          <%= link_to list.name, list_path(list) %>.
+        </div>
+      </div>
+      <%# <span class="badge bg-primary rounded-pill">14</span> %>
+    </li>
+    <% end %>
+  </ol>
+</div>
